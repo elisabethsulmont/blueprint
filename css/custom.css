@@ -1,0 +1,36 @@
+.disabled {
+    opacity: .5;
+}
+
+.disabled .pure-menu-link:hover {
+    background-color: transparent;
+    cursor: default;
+}
+
+.profile {
+	padding: 1em;
+}
+
+.persona {
+	padding: 0 1em;
+}
+
+.persona ul {
+	padding-left: 1em;
+}
+
+.bio {
+	font-size: 90%;
+}
+
+.small>* {
+	font-size: 85%;
+}
+
+.image-rail {
+	padding: 0.5em;
+}
+
+.footer {
+	/*margin-bottom: 2em;*/
+}

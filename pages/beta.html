@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+
+    <title>Blueprint | Beta System</title>
+
+    <link rel="stylesheet" href="../css/pure-min.css">
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' type='text/css'>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body>
+
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
+
+        <div id="menu">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="../index.html">Home</a>
+
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="proposal.html" class="pure-menu-link">proposal</a></li>
+                    <li class="pure-menu-item"><a href="lofi.html" class="pure-menu-link">low-fi prototype</a></li>
+                    <li class="pure-menu-item"><a href="hifi.html" class="pure-menu-link">hi-fi prototype</a></li>
+                    <li class="pure-menu-item"><a href="feedback.html" class="pure-menu-link">feedback</a></li>
+                    <li class="pure-menu-item"><a href="alpha.html" class="pure-menu-link">alpha system</a></li>
+                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">beta system</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <div class="header">
+                <h1>Beta System</h1>
+                <h2>am I there yet?</h2>
+            </div>
+
+            <div class="content">
+
+                <h2 class="content-subhead">Introduction</h2>
+
+                <p>Looking back on this year's theme "enhancing us as humans", and taking our initial project proposal into account, we believed that it was important to mimic the functionality of a ready-for-market product as much as possible. For this reason, we decided to implement the hardware component at this stage, using <a href="http://estimote.com">Estimote</a> beacons to test two routes on 3 different users in the Brown building.</p>
+
+                <img class="pure-img-responsive" src="../images/6-beta/beacons_scale.jpg" alt="iBeacons">
+                <div><small>Fig. 1 - Estimote beacons used for testing (with quarter for scale)</small></div>
+
+                <p>Configuring the beacons required minimal effort: we only needed to modify the <i>Primary Packet Type</i> of the beacons to "Eddystone-URL" then set this URL to a short-link that sends the user to the appropriate start location. We also enabled Google Chrome's <i>Physical Web</i> widget on the iPhone used for testing. The section that follows describes a summary of the tests conducted on our alpha-system.</p>
+
+                <h3>Test procedure</h3>
+                <p>
+                    As mentioned above, we conducted tests with a total of three users. Test subjects were only read the User Introduction and required to complete the pretest questionnaire before beginning the benchmark tasks–no further information was provided to them. A poster was also created to simulate the realistic use-case described in our project proposal. Despite only testing two of our routes, all benchmark tasks were evaluated.
+                </p>
+                <p>
+                    We, the testers, timed the entire test in 'laps'. The first segment began after we described the problem to the test subject: <i>"You would like to go to a resume review session."</i> They were then pointed towards a poster attached to the wall at the entrance of the Brown building lobby. The time required to correctly find the <i>Physical Web notification</i> was documented. Then, one observer asked the user to describe the functionality they believed was available on the landing page of our application.
+                </p>
+
+                <img class="pure-img-responsive" src="../images/6-beta/testing.jpg" alt="testing">
+                <div><small>Fig. 2 - a user starting the test (left) and the poster with beacon (right)</small></div>
+
+                <p>
+                    The second lap began when the test subject was instructed to <i>"Get directions to the resume review session."</i> This was the time required to navigate to room 3001, and observations were noted throughout navigation. When users reached the destination, they were asked to <i>"imagine you are in a wheelchair"</i>, <i>"find the nearest washroom"</i>, and <i>"find room 4040"</i>. The user was not required to navigate to any of these locations, but the task was considered successful if they found the relevant functionality by clicking the correct button.
+                </p>
+                <p>
+                    Room 3001 is immediately beside the Campus Life &amp; Engagement Office, so the third lap started after the user was told to <i>"Get directions to the International Student Services office."</i> Observations were similarly noted throughout navigation.
+                </p>
+                <p>
+                    Once this task was complete, we asked the user to return to the Lobby. Upon arrival, we had an informal discussion where they led the conversation and we only asked them to elaborate on personal opinions or actions/comments made while navigating. They filled out a post-test questionnaire before the test session ended.
+                </p>
+
+                <h3>Summary of test results for each benchmark test</h3>            
+
+                <table class="pure-table pure-table-striped table-responsive bio" width="800" style="margin-left:-3rem;">
+                    <colgroup>
+                        <col style="width:25%">
+                        <col style="width:35%">
+                        <col style="width:40%">
+                        <col style="width:5%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>
+                                <b>Benchmark task</b>
+                            </th>
+                            <th>
+                                <b>Definition of success</b>
+                            </th>
+                            <th>
+                                <b>Test results</b>
+                            </th>
+                            <th>
+                                <b>Success?</b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                            <b>Initiate navigation to specific event</b>
+                            </td>
+                            <td>
+                                Clicks the "Events" tab and selects the <i>CAPS Resume Review session</i> (within 5s)
+                            </td>
+                            <td>
+                                One user clicked the <i>info</i> button before clicking the "Events" tab.
+                            </td>
+                            <td>
+                                Somewhat<sup>*</sup>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Initiate navigation that is wheelchair-friendly</b>
+                            </td>
+                            <td>
+                                Clicks the wheelchair button knowing it is a switch enabling only disability routes (within 5s)
+                            </td>
+                            <td>
+                                All users understood the toggle would enable wheelchair-friendly routes.
+                            </td>
+                            <td>
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Initiate navigation to nearest bathroom</b>
+                            </td>
+                            <td>
+                                Clicks the "Restrooms" tab and the first item listed (within 5s)
+                            </td>
+                            <td>
+                                All subjects clicked the <i>closest</i> washroom button (first in list).
+                            </td>
+                            <td>
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Initiate navigation to specific room number</b>
+                            </td>
+                            <td>
+                                Clicks the search bar, and enters an appropriate query (within 5s)
+                            </td>
+                            <td>
+                                All users immediately tried to search for room 4040.
+                            </td>
+                            <td>
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <b>Initiate navigation to Student Service office</b>
+                            </td>
+                            <td>
+                                Clicks the correct service button, knowing it will show them the route to that office (within 7s)
+                            </td>
+                            <td>
+                                All users immediately clicked the <i>Internation Services</i> button on the "Services" tab while testing the 2nd route.
+                            </td>
+                            <td>
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Navigate to destination</b>
+                            </td>
+                            <td>
+                                Users can successfully reach a specified destination (within 5 min)
+                            </td>
+                            <td>
+                                All subjects were able to navigate to their destination without getting lost (route 1 avg: 1:29; route 2 avg: 1:04)
+                            </td>
+                            <td>
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Navigate back to start location</b>
+                            </td>
+                            <td>
+                                Users can navigate back to the lobby without diverging from the correct path.
+                            </td>
+                            <td>
+                                All users were able to navigate back to the lobby.
+                            </td>
+                            <td>
+                                Yes
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div><small>*We believe testing with more subjects would be required to determine if this task was successful</small></div>
+
+                <p>
+                    Although all our benchmark tasks were met successfully, many usability problems were still brought to our attention by test subjects' comments and actions.
+                </p>
+
+                <h2 class="content-subhead">Observations</h2>
+
+                <p>A summary of important observations, user comments, and failed usability goals are outlined in the table below.</p>
+
+                <table class="pure-table pure-table-striped table-responsive bio" width="800" style="margin-left:-3rem;">
+                    <colgroup>
+                        <col style="width:26%">
+                        <col style="width:41%">
+                        <col style="width:33%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>
+                                <b>Observation</b>
+                            </th>
+                            <th>
+                                <b>Test Subject Comments</b>
+                            </th>
+                            <th>
+                                <b>Failed usability goals</b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Users struggled to find or understand the <i>Physical Web notification</i>.
+                            </td>
+                            <td>
+                                "I didn't know I had a <i>Today page</i>" – subject 1
+                                <br/>
+                                "<i>Bluprint Home</i>... is this it?" – subject 3
+                            </td>
+                            <td>
+                                #5 - The system should be generally acceptable among users.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Users were disoriented by the first instruction telling them their current location.
+                            </td>
+                            <td>
+                                "Oh, I have to turn this way." – subject 1
+                                <br/>
+                                "That means my right is... no, that's left." – subject 2
+                            </td>
+                            <td>
+                                #1 - The system should be effective as a wayfinding tool.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Some users were startled when gifs auto-played.
+                            </td>
+                            <td>
+                                "Ahhh!" – subject 2
+                                <br/>
+                                "Whoah! ... Oh it replays." – subject 3
+                            </td>
+                            <td>
+                                #5 - The system should be generally acceptable among users.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Users continued to click "next instruction" arrows at the last step.
+                            </td>
+                            <td>
+                                not applicable
+                            </td>
+                            <td>
+                                #2 - The system's functionality should be immediately understandable.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Some users asked about the prototype's "set current location" button.
+                            </td>
+                            <td>
+                                "What's this?" – subject 1
+                                <br/>
+                                "Will this show me a map?" – subject 3
+                            </td>
+                            <td>
+                                #2 - The system's functionality should be immediately understandable.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Reactions to alpha system</h3>
+
+                <p>
+                    Most users seemed to understand the basic layout of our home screen, and were able to identify most of the key functionality, see figure below. Gerenal comments about the interface was that it was nice, easy to understand, and gave a good overview, though there were also some negative comments, describing the interface as overwhelming. Several subjects mentioned that it was not clear exactly what would happen when they pressed the buttons on the home screen, and one subject noted that it was strange how the "events" is so close to the wheelchair and bathroom icons, asking what these things actually have in common.
+                </p>
+
+                <img class="pure-img-responsive" src="../images/6-beta/preferences.jpg" alt="Preferences">
+                <div><small>Fig. 3 - preference of system over asking a person or using maps</small></div>
+
+                <p>
+                    In general, users seemed very pleased with our prototype. Several users mentioned that this would be a good alternative to traditional, map-based navigation. This user satisfaction was also represented in our post-test questionnaire, see figures below.
+                </p>
+
+                <img class="pure-img-responsive" src="../images/6-beta/usability.jpg" alt="usability">
+                <div><small>Fig. 4 - perceived usability by test subjects</small></div>
+                
+                <h2 class="content-subhead">Design evolution</h2>
+
+                <p>Content.</p>
+
+                <p>The changes we made are summarized below.</p>
+
+                <h3>1. Update Blueprint "&lt; title &gt;" tag.</h3>
+
+                <p>We decided to change the HTML title of the links from “Blueprint | Home” to “Get Directions in the Brown Building”. Our motive for this was to adhere more to Nielsen's heuristic, <b>match between system and the real world</b>. "Blueprint" is the name of our system, but this does not mean anything to our users, especially if they are lost. Furthermore, because iBeacons are relatively new technology and not implemented in everyday life, it is very likely that it will be a user's first time interacting with them. We believe "Get Directions in the Brown Building" is much more clear for potential users, thus minimizing their confusion.</p>
+
+                <img class="pure-img-responsive" src="../images/6-beta/today.jpg" alt="title">
+                <div style="margin-bottom: 1em;">
+                    <small>Fig. 5 - Physical web notification, and before &amp; after change to webpage title</small>
+                </div>
+
+                <h3>2. Remove the first image describing the user's current location.</h3>
+
+                <p>In our directions, we made it such that the first picture shown to the user was their current location. This caused confusion because users believed that it was an indication of the direction they should head, whereas it was only meant to reassure them that the system knew approximately where they were standing. It disoriented two test subjects as the next picture shown was actually facing a different direction in the second route.</p>
+
+                <p>To solve this issue, we removed the first picture in our instructions when they show a counterintuitive perspective with respect to the direction they need to go. This also relates to Nielsen's heuristic, <b>match between system and the real world</b>.</p>
+
+                <h3>3. Ensure all GIFs have an accompanying photo.</h3>
+
+                <p>
+                    Some individual steps, usually the physically longer ones, have accompanying gifs showing a fast-forwarded walkthrough of the step. Previously, we had several of these gifs running automatically. In observing our test subjects, we found that they were confused when the gif immediately played rather when they had the option to play it. For example, we noted that Test Subject #1 was stressed and found the gif too fast when one of the GIFs autostarted. This confusion perhaps stems from the looping nature of GIFs and not clearly seeing the starting and ending point. We decided to make all steps with GIFs cohesive in the sense that they all have a starting picture with a button on the bottom-right corner that launches the GIF.
+                </p>
+
+                <ul>
+                    <li><b>Flexibility and efficiency of use: </b>.</li>
+                    <li><b>User control and freedom: </b>.</li>
+                </ul>
+
+                <img class="pure-img-responsive" src="../images/6-beta/arrows.jpg" alt="changes">
+                <div style="margin-bottom: 1em;">
+                    <small>Fig. 6 - interface reflecting change #2, #3, and #4 (left) with a user that encountered problems (right)</small>
+                </div>
+
+                <h3>4. Remove left arrow on first instruction and right arrow on last instruction.</h3>
+
+                <p>
+                    During testing, two users clicked the right arrow button multiple times on the last step despite having reached their destination (see figure 1). They did this in both tasks that required using the system for wayfinding, assuming each time there was some type of lag. This is a usability issue in our interface as we are not giving appropriate feedback. Both users thought there was another direction because the button was fully clickable and its existence indicates that there is more for the user. To solve this issue, the right arrow button will be deleted from the last step from all directions (see figure 3).
+                </p>
+
+                <ul>
+                    <li><b>Visibility of system status: </b>.</li>
+                    <li><b>Error prevention: </b>.</li>
+                </ul>
+
+                <p>A correlary to improving instructions is improving the user's awareness of where they are, currently, in the building. For this implementation of the prototype, we have also updated the "Current Location" label at the bottom of the screen, such that it now specifies that the user is in the Brown building.</p>
+
+                <h3>5. Hide 'set current location' button.</h3>
+
+                <p>In our system, the user isn't supposed to select their starting location because it is automatically generated using iBeacons. However, in our alpha system, after getting a lot of confusion in our formative feedback on how to select a starting location, we decided to add an update button which showed a menu of all the starting locations on the static bottom bar.</p>
+
+                <p>In our testing of the alpha system, none of the test subjects touched the update button or had a problem understanding that the iBeacon generated the starting location. We believe this understanding is due to the addition of this poster in our system. When we asked one of our test subject if they had any confusion with the iBeacons, they replied "Nope! The poster made it very clear". Since the confusion regarding how the starting location is set is no longer relevant, we decided to remove the update button. This relates to <b>error prevention</b>.</p>
+
+                <img class="pure-img-responsive" src="../images/6-beta/arrows_2.jpg" alt="changes 2">
+                <div style="margin-bottom: 1em;">
+                    <small>Fig. 7 - before (left) &amp; after (center, right) images of interface reflecting change #4 and #5</small>
+                </div>
+
+                <p>However, because this is still a prototype, the functionality of the button is still very useful in case testers forget or encounter difficulty using the beacons. For this reason, we decided to <i>hide</i> the button. Clicking on location of the button reveals the start location directory page, relating to Nielsen's <b>help and documentation</b> heuristic.</p>
+
+
+                <h2 class="content-subhead">Prototype implementation (with revisions)</h2>
+
+                <p>Our revised prototype is available <a href="https://myblueprint.herokuapp.com/" target="blank">here</a><sup>1, 2</sup>.</p>
+
+                <small>1. Please shrink your browser size down when viewing the web application on a desktop computer or laptop. Due to nature of our system, a desktop-friendly UI was not our priority.</small> <br/>
+                <small>2. For a realistic experience, iPhones and either Google Chrome or Safari for browsing is best.</small>
+
+                <h2 class="content-subhead">User manual (with revisions)</h2>
+
+                <div class="pure-g">
+                    <div class="pure-u-1-4">
+                        <img class="pure-img-responsive" src="../images/2-lofi/doc_icon.png" alt="document" style="margin-top: 1em;">
+                    </div>
+                    <div class="pure-u-3-4">
+                        <ol>
+                            <li><a href="../images/6-beta/manual.pdf">System manual</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <h2 class="content-subhead">Documentation refinement</h2>
+
+                <p>A few important changes were made to the user manual, and these relate to the addition of beacons and the poster. Most of the functionality of system did not change, but images were also updated. A summary of changes made to our user manual is outlined below.</p>
+
+                <ol>
+                    <li>Beacon set-up instructions.</li>
+                        <ul>
+                            <li>A section now describes how to configure the iBeacons.</li>
+                        </ul>
+                    <li>Poster and beacon placement.</li>
+                        <ul>
+                            <li>A section now describes where to install beacons and posters.</li>
+                        </ul>
+                    <li>Images of various screens.</li>
+                        <ul>
+                            <li>The photos included accurately depict the current implementation of our prototype.</li>
+                        </ul>
+                    <li>Prototype limitations.</li>
+                        <ul>
+                            <li>The section was expanded to describe <i>Physical Web</i> requirement.</li>
+                        </ul>
+                </ol>
+
+                <h2 class="content-subhead">Appraisal of project success</h2>
+
+                <p>The system's usability goals were quickly determined upon reexamination of our different audience segments. We justify the selected goals below.</p>
+
+                <ol>
+                    <b><li>The system should be <i>effective</i> as a wayfinding tool.</li></b>
+                        <ul>
+                            <li>If the user is unable to navigate to their destination, the system immediately fails by not meeting the user's needs. If the user gets lost along the way or must revert back to classic navigation (i.e. maps or asking a person), the system holds no value.</li>
+                        </ul>
+                    <b><li>The system's functionality should be immediately <i>understandable</i>.</li></b>
+                        <ul>
+                            <li>Users, particularly those belonging to the Social Traveller segment, seem to have default mechanisms for wayfinding. If these users do not understand how to use the system at a glance, they will likely fall back to their old wayfinding methods.</li>
+                        </ul>
+                    <b><li>The system should be highly <i>accessible</i> to users with physical limitations.</li></b>
+                        <ul>
+                            <li>Particularly relevant to the Brown building because it houses Student Health Services, a highly accessible system is important. However, most locations in which an indoor navigation tool would be useful (museums and hospitals, for example) also require consideration to those who are handicapped.</li>
+                        </ul>
+                    <b><li>The system should be easily <i>operable</i>.</li></b>
+                        <ul>
+                            <li>If users are too focused on their interaction with our system, it creates a potentially dangerous situation given that they could be travelling down staircases, through crowds, or along slippery hallways. From our observations, the Independent Wanderers tend to study maps and information sources; we do not want these users getting injured as a biproduct of interaction with our system.</li>
+                        </ul>
+                    <b><li>The system should be generally <i>acceptable</i> among users.</li></b>
+                        <ul>
+                            <li>Because we believe an indoor navigation system should be transportable to different locations, low barriers to use are central to its success. The system is inherently not necessary, so users must see immediate benefit with very little effort.</li>
+                        </ul>
+                </ol>
+
+                <h2 class="content-subhead">Conclusion</h2>
+
+                <p>The system's usability goals were quickly determined upon reexamination of our different audience segments. We justify the selected goals below.</p>
+
+                <img class="pure-img-responsive" src="../images/6-beta/novelty.jpg" alt="success">
+                <div><small>Fig. 5 - effectiveness of GIFs and market potential</small></div>
+
+            </div>
+
+<div class="footer"></div>
+
+<script src="../js/ui.js"></script>
+
+</body>
+
+</html>

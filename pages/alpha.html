@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+
+    <title>Blueprint | Alpha System</title>
+
+    <link rel="stylesheet" href="../css/pure-min.css">
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' type='text/css'>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body>
+
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
+
+        <div id="menu">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="../index.html">Home</a>
+
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="proposal.html" class="pure-menu-link">proposal</a></li>
+                    <li class="pure-menu-item"><a href="lofi.html" class="pure-menu-link">low-fi prototype</a></li>
+                    <li class="pure-menu-item"><a href="hifi.html" class="pure-menu-link">hi-fi prototype</a></li>
+                    <li class="pure-menu-item"><a href="feedback.html" class="pure-menu-link">feedback</a></li>
+                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">alpha system</a></li>
+                    <li class="pure-menu-item"><a href="beta.html" class="pure-menu-link">beta system</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <div class="header">
+                <h1>Alpha System</h1>
+                <h2>on the right track</h2>
+            </div>
+
+            <div class="content">
+                
+                <h2 class="content-subhead">Design evolution</h2>
+
+                <p>Provided with the WAKR group's formative feedback, we reviewed test results and discussed their suggested changes. Based on our own knowledge of the system, we chose to follow some of the suggestions exactly while attempting to find underlying or root problems causing the usability issues identified in user tests for others.</p>
+
+                <p>The changes we made are summarized below.</p>
+
+                <h3>1. Minimize user confusion when a path has not been implemented.</h3>
+
+                <p>In our first implementation of the computer prototype, when media for a path directing the user from one location to another did not exist, the hyperlink would return the user to the homepage. Although this was intentional behaviour created specifically for testing, we understand that users encountering this event will think the system is misbehaving. Clearly, it is an important usability issue opposing Nielsen's <b>Visibility System Status</b> heuristic, and was specifically addressed by the WAKR group.</p>
+
+                <img class="pure-img-responsive" src="../images/5-alpha/suggestion01.png" alt="suggestion-1">
+                <div style="margin-bottom: 1em;">
+                    <small>Fig. 1 - excerpt from WAKR's suggested changes</small>
+                </div>
+
+                <p>To mimic the realistic situation where <i>not all routes</i> in a building have been created, we now dynamically render buttons in a disabled state when the corresponding route does not exist. However, to maintain some semblance to a fully-functional system, we discard this behaviour on the "Services" tab of the homepage, and simply show the user an error message. This solution is advantageous because it maximizes <b>Error prevention</b> while not masking sources of user confusion caused by the labeling, and it will not distract future testers when viewing a page with no active routes.</p>
+
+                <h3>2. Improve system performance and provide feedback.</h3>
+
+                <p>Although not explicitly listed as a suggested improvement in WAKR's formative feedback, improving system performance was mentioned numerous times in their report. One of the most insightful comments was this: <em>"The application was prone to lagging which caused users to over-click, erroneously putting them steps ahead in their path."</em> Such an interpretation of observed results is extremely valuable because it addresses the <em>cause</em> of errors, not the errors themselves. It relates to both <b>Error prevention</b> and <b>Flexibility and efficiency of use</b> from Nielsen's usability heuristics.</p>
+
+                <p>To alleviate page-load and improve the rendering times of media, we (1) removed extraneous GIFs for steps including clear images and straightforward directions, and (2) implemented asynchronous asset preloading to better utilize the time before a user requests the next instruction.</p>
+
+                <h3>3. Remove unnecessary buttons and increase button operability.</h3>
+
+                <p>WAKR criticized that two buttons in particular were not useful: <em>"Some buttons (example, the home button and the magnifying glass icon) seem to serve no real purpose."</em> Their critique is quite straightforward and this change reflects improved usability along two heuristics.</p>
+
+                <ul>
+                    <li><b>Consistency and standards: </b>The magnifying glass icon serving only as a metaphor for search-functionality, although simple, was counterproductive as users would often try to search by clicking the icon itself. This acts in opposition to well-known standards where anything in the search input field is clickable and will allow the user to begin typing. Now, the search bar is clearly outlined and the search icon is selectable, which follows long-standing industry conventions for searching.</li>
+                    <li><b>Aesthetic and minimal design: </b>The interface itself did not contain "irrelevant" information, however the two methods of returning to the home screen (using the arrow in navigation or clicking the home icon in the footer) was indeed redundant. In an attempt to truly refine the design, we removed the home icon from the footer, as keeping nonessential elements clutters the page and increases the mental-load on the user.</li>
+                </ul>
+
+                <img class="pure-img-responsive" src="../images/5-alpha/suggestion03.png" alt="suggestion-2">
+                <div style="margin-bottom: 1em;">
+                    <small>Fig. 2 - additional excerpts from WAKR's suggested changes</small>
+                </div>
+
+                <h3>4. Improve the descriptiveness of locations and instructions.</h3>
+
+                <p>Obviously, if a user finds our choice of labeling ambiguous or is confused by the wording of certain directions, the system fails along the measure of <b>Match between system and real world.</b> For this reason, we have modified some of the wording used in the system, so the user can more quickly understand what action is needed on their part.</p>
+
+                <p>A correlary to improving instructions is improving the user's awareness of where they are, currently, in the building. For this implementation of the prototype, we have also updated the "Current Location" label at the bottom of the screen, such that it now specifies that the user is in the Brown building.</p>
+
+                <img class="pure-img-responsive" src="../images/5-alpha/suggestion02.png" alt="suggestion-3">
+                <div style="margin-bottom: 1em;">
+                    <small>Fig. 3 - excerpts from WAKR's suggested changes</small>
+                </div>
+
+                <h3>5. Make it obvious that the restrooms are organized by proximity.</h3>
+
+                <p>Under the initial assumption that the first item in a list was the most important, and that users would only pay attention to the first thing they recognized, we did not indicate that the restrooms were sorted in any way. Fortunately, WAKR's testing exposed that some users did not find this clear, as a list of 5 identically labelled restrooms was presented to them. Now, the closest washroom is highlighted with an off-white border accompanied by a small star label with the word "closest".</p>
+
+                <p>This improves the system along Nielsen's heuristic <b>Visibility of system status</b> because it visually exposes a convenience feature that is available, and the heuristic <b>Flexibility and efficiency of use</b> because it optimizes for the common-case, where a user simply wants to find the nearest restroom as quickly as possible.</p>
+
+                <h3>6. Increase user-awareness of how the system works.</h3>
+
+                <p>This improvement was implemented by adding an "Info" button where the home button used to exist. Clicking the info button takes the user to a short FAQ page, answering some presumably common questions about how the system operates. Our goals for the FAQ page were:</p>
+
+                <ul>
+                    <li>Emphasize that beacons are part of the system, so the user can understand the system's abilities and limitations. This enhances the <b>Help and documentation</b> available to the user, and allows them to create a better mental-model for what functionalities exist.</li>
+                    <li>Use plain language to describe the high-level functionality of the Blueprint system. This hopefully prevents users from increased confusion when viewing this page from curiosity or mistake. It also follows Nielsen's heuristic <b>Match between system and real-world</b> because the physical implementation of beacons is descrbed in as clear language as possible.</li>
+                </ul>
+
+                <h2 class="content-subhead">Prototype implementation (with revisions)</h2>
+
+                <p>Our revised prototype is available <a href="https://myblueprint.herokuapp.com/" target="blank">here</a><sup>1, 2</sup>.</p>
+
+                <small>1. Please shrink your browser size down when viewing the web application on a desktop computer or laptop. Due to nature of our system, a desktop-friendly UI was not our priority.</small> <br/>
+                <small>2. For a realistic experience, iPhones and either Google Chrome or Safari for browsing is best.</small>
+
+                <h2 class="content-subhead">User manual (with revisions)</h2>
+
+                <div class="pure-g">
+                    <div class="pure-u-1-4">
+                        <img class="pure-img-responsive" src="../images/2-lofi/doc_icon.png" alt="document" style="margin-top: 1em;">
+                    </div>
+                    <div class="pure-u-3-4">
+                        <ol>
+                            <li><a href="../images/5-alpha/manual.pdf">System manual</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <h2 class="content-subhead">Documentation refinement</h2>
+
+                <p>Only a few changes were made to the user manual, and these relate specifically to the images of screen layouts we included in the document. Most of the functionality of system did not change, but certain elements, we believe, are now more usable. A summary of changes made to our user manual are outlined below.</p>
+
+                <ol>
+                    <li>Homescreen and navigation screen images.</li>
+                        <ul>
+                            <li>The photos included accurately depict the current implementation of our prototype.</li>
+                        </ul>
+                    <li>Feedback and prototype-specific screen images.</li>
+                        <ul>
+                            <li>We included a third page in our "Screen Overview" section, which now shows the pages used to give the user more information, or facilitate the evaluator's task.</li>
+                        </ul>
+                    <li><em>Accessing more info (FAQ)</em> step-by-step.</li>
+                        <ul>
+                            <li>This tells the user how to view the FAQ page of our prototype.</li>
+                        </ul>
+                    <li>Step-by-step images.</li>
+                        <ul>
+                            <li>The photos included accurately depict the current implementation of our prototype.</li>
+                        </ul>
+                </ol>
+
+
+            </div>
+
+<div class="footer"></div>
+
+<script src="../js/ui.js"></script>
+
+</body>
+
+</html>
